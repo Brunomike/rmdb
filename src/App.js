@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from './components/Header'
+import Home from "./containers/Home"
+import Movie from "./components/Movie";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+//Routing
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import {Routes} from "react-router";
+
+// styles
+import {GlobalStyle} from './GlobalStyle'
+import NotFound from "./components/NotFound";
+
+const App = () => {
+    return (
+        <Router>
+                <Header/>
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/:movieId" element={<Movie/>}/>
+                    <Route path="/*" element={<NotFound/>}/>
+                </Routes>
+                <GlobalStyle/>
+        </Router>
+    )
 }
 
-export default App;
+export default App
