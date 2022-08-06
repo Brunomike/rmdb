@@ -1,4 +1,4 @@
-import {useState, useEffect, useCallback} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {isPersistedState} from "../helpers";
 import API from "../API";
 
@@ -38,7 +38,7 @@ export const useMovieFetch = (movieId) => {
             return
         }
         fetchMovie()
-    }, [fetchMovie, movieId, isPersistedState])
+    }, [fetchMovie, movieId])
 
     useEffect(() => {
         sessionStorage.setItem(movieId, JSON.stringify(state))

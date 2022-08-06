@@ -20,7 +20,7 @@ import NoImage from '../images/no_image.jpg'
 const Movie = (props) => {
     const {movieId} = useParams()
     const {state: movie, loading, error} = useMovieFetch(movieId)
-    //console.log("MOVIE", movie)
+
     if (loading) return <Spinner/>
     if (error) return <div>Something went wrong...</div>
     return (
@@ -46,6 +46,6 @@ const Movie = (props) => {
     )
 }
 
-const MovieWithParams=props=> <Movie{...props} params={useParams()}/>
+//const MovieWithParams=props=> <Movie{...props} params={useParams()}/>
 
 export default Movie

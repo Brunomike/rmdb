@@ -19,7 +19,7 @@ const SearchBar = (props) => {
         }, 500)
 
         return () => clearTimeout(timer)
-    }, [props.setSearchTerm, state])
+    }, [props, state])
 
 
     return (
