@@ -42,16 +42,16 @@ export const useHomeFetch = () => {
         if (!searchTerm) {
             const sessionState = isPersistedState("homeState")
             if (sessionState.results.length > 0) {
-                console.log("Grabbing from sessionStorage")
-                console.log(sessionState)
+                // console.log("Grabbing from sessionStorage")
+                // console.log(sessionState)
                 setState(sessionState)
                 return
             } else {
-                console.log("Fetching Popular Movies")
+                //console.log("Fetching Popular Movies")
                 fetchMovies(searchTerm, 1)
             }
         }
-        console.log("Grabbing from api")
+        //console.log("Grabbing from api")
         setState(initialState)
         fetchMovies(searchTerm, 1)
     }, [searchTerm])

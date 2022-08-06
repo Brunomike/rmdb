@@ -8,7 +8,7 @@ import {Context} from "../../context";
 
 const Header = () => {
     const [user] = useContext(Context)
-    console.log(user)
+    //console.log(user)
     return (
         <Wrapper>
             <Content>
