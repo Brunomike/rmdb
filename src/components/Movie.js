@@ -46,4 +46,6 @@ const Movie = (props) => {
     )
 }
 
+const MovieWithParams=props=> <Movie{...props} params={useParams()}/>
+
 export default Movie

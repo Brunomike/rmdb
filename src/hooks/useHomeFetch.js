@@ -41,10 +41,14 @@ export const useHomeFetch = () => {
     useEffect(() => {
         if (!searchTerm) {
             const sessionState = isPersistedState("homeState")
-            if (sessionState) {
+            if (sessionState.results.length > 0) {
                 console.log("Grabbing from sessionStorage")
+                console.log(sessionState)
                 setState(sessionState)
                 return
+            } else {
+                console.log("Fetching Popular Movies")
+                fetchMovies(searchTerm, 1)
             }
         }
         console.log("Grabbing from api")
@@ -62,7 +66,7 @@ export const useHomeFetch = () => {
 
     //Write to sessionStorage
     useEffect(() => {
-        if (!searchTerm) sessionStorage.setItem("homeState",JSON.stringify(state))
+        if (!searchTerm) sessionStorage.setItem("homeState", JSON.stringify(state))
     }, [searchTerm, state])
 
 
